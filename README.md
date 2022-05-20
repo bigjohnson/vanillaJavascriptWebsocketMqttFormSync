@@ -14,7 +14,7 @@ These function can manage different html input typer:
 - Multiple selection lists
 - Slider
 
-The code need can be run standalone from you hd or hosted on webserver and need an websocket mqtt server.
+The code need can be run standalone from you hd or hosted on webserver and need a websocket mqtt server.
 
 You can test it online at this link: https://www.panu.it/mqttjavascript/mqttjs_06.html
 
