@@ -1,0 +1,57 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Javascript mqtt dom massaging</title>
+
+  <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+
+</head>
+
+<body>
+  <script src="js/paho-mqtt.js"></script>
+  <script src="js/scripts_06.js"></script>
+
+<!--  <input id="clickMe" type="button" value="FaiLeCose" onclick="pushButton();" /> -->
+
+  <h1>Javascript mqtt dom massaging</h1>
+  <h2>Status</h2>
+  <div id="STATUS"> </div>
+  <h2>Topic</h2>
+  <div id="TOPIC"> </div>
+  <h2>Slider</h2>
+  <input type="range" min="1" max="100" value="50" class="slider" id="myRange" oninput="executemqtt('myRange')">
+  <div id="myRangeTxt">50</div>
+  <h2>Testo</h2>
+  <input type="text" id="myText" oninput="executemqtt('myText')">
+  <h2>Radio single</h2>
+    <input type="radio" id="genderm" name="gender" value="male" oninput="executemqtt('genderm')"/>
+    <label for="genderm">Male</label>
+    <input type="radio" id="genderf" name="gender" value="female" oninput="executemqtt('genderf')"/>
+    <label for="genderf">Female</label>
+  <h2>Multi select</h2>
+<select multiple="multiple" id="myMultiple" oninput="executemqtt('myMultiple')">
+      <option value="a">A</option>
+      <option value="b">B</option>
+      <option value="c">C</option>
+      <option value="d">D</option>
+    </select>
+<h2>Text Area</h2>
+ <textarea name="message" rows="10" cols="50" id="myTextArea" oninput="executemqtt('myTextArea')">
+The cat was playing in the garden.
+</textarea> 
+  <h1>Debug:</h1>
+  <div id="DB"> </div>
+  <script>
+  // self executing function here
+  (function() {
+     // your page initialization code here
+     // the DOM will be available here
+     MQTTconnect();
+  })();
+  </script>
+</body>
+</html>
+
