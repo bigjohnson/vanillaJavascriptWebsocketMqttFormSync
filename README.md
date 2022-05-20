@@ -8,8 +8,8 @@ The onMessageArrived(message) function on the vanilla/scripts_06.js choose the t
 The executemqtt(controlid) send the changes from form elements to the mqtt server.
 
 These function can manage different html input typer:
-- Text areasingle line
-- Text area multiline
+- Text area single line
+- Text area multi lines
 - Radio button
 - Multiple selection lists
 - Slider
