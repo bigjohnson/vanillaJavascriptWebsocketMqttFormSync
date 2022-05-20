@@ -1,5 +1,6 @@
+// The mqtt websocket server
 host = 'panu.it';
-//host = 'test.mosquitto.org';
+// Automatic selection of protocol and port
 if (location.protocol != 'https:') {
 	port = 80;
 	useTLS = false;
@@ -8,14 +9,19 @@ if (location.protocol != 'https:') {
 	useTLS = true;
 }
 
-
+// Topic tree where the single form elements topics will be published
 slidertopic = 'javascript/6/';
 cleansession = true;
+// Mqtt server username and password
 username = "javascript";
 password = "javascript";
+// Unique client id needed for skip own messages
 casuale = parseInt(Math.random() * 100000000, 16);
-clientid = "web_" + casuale.toString(16); 
+clientid = "web_" + casuale.toString(16);
+
+// paho mqtt server object
 var mqtt;
+// reconnect timeout delay
 var reconnectTimeout = 2000;
 
 function MQTTconnect() {
@@ -53,7 +59,7 @@ function MQTTconnect() {
   mqtt.connect(options);
 }
 
-// ----------------- ALLA CONNESSIONE -------------
+// ----------------- At the connection -------------
 function onConnect() {
   STATUS.firstChild.data='Connected to ' + host + ':' + port + path;
   debuglog('Connected to ' + host + ':' + port + path);
@@ -62,13 +68,14 @@ function onConnect() {
   TOPIC.firstChild.data=slidertopic;
 }
 
+// At loosing connection
 function onConnectionLost(response) {
 setTimeout(MQTTconnect, reconnectTimeout);
   debuglog('Connected lost to ' + host + ':' + port + path);
 };
 
 
-// ----------------- QUANDO ARRIVA UN MESSAGGIO MQTT -------------
+// ----------------- When arrive an mqtt packet on the tree -------------
 function onMessageArrived(message) {
 
   // estrae il topic dal messaggio
@@ -133,6 +140,7 @@ try {
 }
 };
 
+// Append code to the debug div
 function debuglog(message) {
   var today = new Date();
   var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -143,10 +151,7 @@ function debuglog(message) {
   DB.innerHTML = time + " ---> " + message + "<br>" + oldInnerHTML;
 }
 
-//$(document).ready(function() {
-//  MQTTconnect();
-//});
-
+// This function send form element changes to mqtt topic
 function executemqtt(controlid){
   var activatedControl = document.getElementById(controlid);
   var activatedControlType = activatedControl.type;
