@@ -1,7 +1,7 @@
 # vanillaJavascriptWebsocketMqttFormSync
 A webpage that use paho javascript for live update of form elements.
 
-This is a sample code that send and receive html form data cghanges to an mqtt server, displaing them live on all client showing the page.
+This is a sample code that send and receive html form data changes to an mqtt server, displaing them live on all client showing the page.
 
 The onMessageArrived(message) function on the vanilla/scripts_06.js choose the type of form control and update the content.
 
