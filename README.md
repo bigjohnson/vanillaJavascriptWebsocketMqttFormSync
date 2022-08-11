@@ -1,4 +1,4 @@
-# vanillaJavascriptWebsocketMqttFormSync
+# vanilla Javascript Websocket Mqtt Form Sync
 A webpage that use paho javascript for live update of form elements.
 
 This is a sample code that send and receive html form data changes to an mqtt server, displaing them live on all client showing the page.
