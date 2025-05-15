@@ -16,7 +16,7 @@ These function can manage different html input types:
 
 The code need can be run standalone from you hd or hosted on webserver and need a websocket mqtt server.
 
-You can test it online at this link: https://www.panu.it/mqttjavascript/mqttjs_06.html
+You can test it online at this link: https://www.panu.it/javascriptmqtt/mqttjs_06.html
 
 For better understanding how it works I conseil you open the page from two different browser on different devices, that will show you the input sync.
 
